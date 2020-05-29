@@ -1,0 +1,54 @@
+{
+	"name": "my-lib",
+	"version": "0.1.0",
+	"description": "",
+	"keywords": [],
+	"homepage": "#readme",
+	"repository": {
+		"type": "git",
+		"url": ""
+	},
+	"license": "MIT",
+	"engines": {
+		"node": ">=10"
+	},
+	"author": "",
+	"main": "index.js",
+	"types": "./types/index.d.ts",
+	"module": "index.esm.js",
+	"browser": "index.web.js",
+	"scripts": {
+		"build": "rollup --config",
+		"lint": "eslint --config .eslintrc.json --ext .js,.ts --ignore-pattern src/vendors/**/* src/",
+		"prepublishOnly": "npm run build",
+		"release": "np"
+	},
+	"publishConfig": {
+		"registry": "https://registry.npmjs.org/",
+		"access": "public"
+	},
+	"files": [
+		"build/",
+		"types/",
+		"index.js",
+		"index.esm.js",
+		"index.web.js"
+	],
+	"peerDependencies": {},
+	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^3.0.0",
+		"@typescript-eslint/parser": "^3.0.0",
+		"eslint": "^7.1.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-prettier": "^3.1.3",
+		"np": "*",
+		"prettier": "2.0.5",
+		"rollup": "^2.10.9",
+		"rollup-plugin-filesize": "^9.0.0",
+		"rollup-plugin-progress": "^1.1.2",
+		"rollup-plugin-terser": "^6.1.0",
+		"rollup-plugin-typescript2": "^0.27.1",
+		"rollup-plugin-visualizer": "^4.0.4",
+		"typescript": "^3.9.3"
+	}
+}

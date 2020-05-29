@@ -1,0 +1,23 @@
+# See https://docs.npmjs.com/using-npm/developers.html#keeping-files-out-of-your-package for more about ignoring files.
+
+# ide
+.vscode/
+
+# dependencies
+/node_modules
+package-lock.json
+
+# testing
+/test
+/coverage
+
+# rollup visualizer
+stats.html
+
+# build
+.babelrc.js
+.prettierrc.yaml
+rollup.config.js
+
+# source
+/src
