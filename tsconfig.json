@@ -6,8 +6,8 @@
 		// "resolveJsonModule": true,
 		"esModuleInterop": true,
 		"strict": true,
-		"noImplicitThis": true,
-		// "noImplicitAny": true
+		"noImplicitThis": false,
+		// "noImplicitAny": true,
 		"declaration": true,
 		"declarationDir": "./types"
 	},

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Demo</title>
+		<link href="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.css" rel="stylesheet" />
+		<style>
+			html,
+			body,
+			#map {
+				overflow: hidden;
+				margin: 0;
+				padding: 0;
+				width: 100%;
+				height: 100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="map"></div>
+
+		<script src="https://api.mapbox.com/mapbox-gl-js/v1.10.1/mapbox-gl.js"></script>
+		<script src="../build/bundle.min.js"></script>
+		<script>
+			const mapboxGL = window.mapboxgl
+			const tdtToken = '50f23323fd61ce53465fca366c449e87'
+
+			mapboxGL.accessToken = 'pk.eyJ1IjoibXJ3YW5nMTIxMiIsImEiOiJjanQ1ZnF2M3QwNXliNDNvN3htMWYyODljIn0.eBdPKjo6n3odkn4thCjCxg'
+
+			const INIT_MAP_STATE = {
+				latitude: 34.25249,
+				longitude: 108.94142,
+				zoom: 12,
+				bearing: 0,
+				pitch: 0,
+			}
+
+			const map = new mapboxGL.Map({
+				container: 'map',
+				style: {
+					version: 8,
+					glyphs: 'mapbox://fonts/mapbox/{fontstack}/{range}.pbf',
+					sources: {
+						google: {
+							type: 'raster',
+							tileSize: 256,
+							minzoom: 0,
+							maxzoom: 20,
+							tiles: ['0', '1', '2'].map((sub) => `//mt${sub}.google.cn/vt/lyrs=m&x={x}&y={y}&z={z}`),
+						},
+						osm: {
+							type: 'raster',
+							tileSize: 256,
+							minzoom: 0,
+							maxzoom: 18,
+							tiles: ['a', 'b', 'c'].map((sub) => `//${sub}.tile.openstreetmap.org/{z}/{x}/{y}.png`),
+						},
+					},
+					layers: [],
+				},
+				// hash: true,
+				center: [INIT_MAP_STATE.longitude, INIT_MAP_STATE.latitude],
+				zoom: INIT_MAP_STATE.zoom,
+				bearing: INIT_MAP_STATE.bearing,
+				pitch: INIT_MAP_STATE.pitch,
+			})
+
+			const googleLayer = {
+				id: 'google-map',
+				type: 'raster',
+				source: 'google',
+			}
+			const osmLayer = {
+				id: 'osm-map',
+				type: 'raster',
+				source: 'osm',
+			}
+
+			setTimeout(() => {
+				map.addLayerGroup('google')
+				map.addLayerToGroup('google', googleLayer)
+
+				// map.addLayerGroup('osm')
+				// map.addLayerGroup('osm', { beforeId: 'google' })
+				// map.addLayerToGroup('osm', osmLayer)
+			}, 1e3)
+
+			// 添加控件
+			map.addControl(
+				new mapboxGL.ScaleControl({
+					maxWidth: 80,
+					unit: 'metric',
+				})
+			)
+
+			map.addControl(new mapboxGL.FullscreenControl({ container: document.body }), 'bottom-right')
+
+			// Add zoom and rotation controls to the map.
+			map.addControl(new mapboxGL.NavigationControl({ visualizePitch: true }), 'bottom-right')
+
+			map.addControl(
+				new mapboxGL.GeolocateControl({
+					positionOptions: {
+						enableHighAccuracy: true,
+					},
+					trackUserLocation: true,
+				}),
+				'bottom-right'
+			)
+		</script>
+	</body>
+</html>

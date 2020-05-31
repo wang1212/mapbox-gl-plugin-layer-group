@@ -1,12 +1,16 @@
 {
-	"name": "my-lib",
+	"name": "mapbox-gl-plugin-layer-group",
 	"version": "0.1.0",
-	"description": "",
-	"keywords": [],
-	"homepage": "#readme",
+	"description": "Mapbox-GL plugin, layer group management.",
+	"keywords": [
+		"Mapbox-GL",
+		"Plugin",
+		"LayerGroup"
+	],
+	"homepage": "https://github.com/wang1212/mapbox-gl-plugin-layer-group.git#readme",
 	"repository": {
 		"type": "git",
-		"url": ""
+		"url": "https://github.com/wang1212/mapbox-gl-plugin-layer-group.git"
 	},
 	"license": "MIT",
 	"engines": {
@@ -34,16 +38,20 @@
 		"index.esm.js",
 		"index.web.js"
 	],
-	"peerDependencies": {},
+	"peerDependencies": {
+		"mapbox-gl": ">=1.10.0"
+	},
 	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^3.0.0",
-		"@typescript-eslint/parser": "^3.0.0",
+		"@types/mapbox-gl": "latest",
+		"@typescript-eslint/eslint-plugin": "^3.0.2",
+		"@typescript-eslint/parser": "^3.0.2",
 		"eslint": "^7.1.0",
 		"eslint-config-prettier": "^6.11.0",
 		"eslint-plugin-prettier": "^3.1.3",
+		"mapbox-gl": "latest",
 		"np": "*",
 		"prettier": "2.0.5",
-		"rollup": "^2.10.9",
+		"rollup": "^2.12.0",
 		"rollup-plugin-filesize": "^9.0.0",
 		"rollup-plugin-progress": "^1.1.2",
 		"rollup-plugin-terser": "^6.1.0",
