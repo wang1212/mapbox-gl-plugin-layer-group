@@ -1,6 +1,6 @@
 {
 	"name": "mapbox-gl-plugin-layer-group",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "Mapbox-GL plugin, layer group management.",
 	"keywords": [
 		"Mapbox-GL",
