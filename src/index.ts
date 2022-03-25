@@ -138,7 +138,7 @@ function removeLayerGroup(groupId: string): void {
 
 	for (let i = 0; i < layers.length; i++) {
 		// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
-		if (layers[i].metadata?.group === id) {
+		if (layers[i].metadata?.group === groupId) {
 			map.removeLayer(layers[i].id)
 		}
 	}
